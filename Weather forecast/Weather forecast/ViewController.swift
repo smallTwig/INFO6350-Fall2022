@@ -66,11 +66,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 
         let weatherData = JSON(responseData.data as Any)
 
-
         let forecastValues =  weatherData["locations"][locationStr]["values"]
 
         print(forecastValues.count)
-
+        
+        self.temps = [String]()
         for forecast in forecastValues {
 
             let forecastJSON = JSON(forecast.1)
@@ -80,10 +80,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
             let str = "temperature = \(temp)℉, \(condition)"
             self.temps.append(str)
 
-            print(forecast)
+            //print(forecast)
         }
+        print(self.temps)
         self.tbView.reloadData()
-            
         }
     }
     
@@ -107,26 +107,27 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 
         let weatherData = JSON(responseData.data as Any)
 
-            let forecastValues =  weatherData["locations"][self.txtCity.text!]["values"]
+        let forecastValues =  weatherData["locations"][self.txtCity.text!]["values"]
 
         print(forecastValues.count)
 
         self.temps = [String]()
         for forecast in forecastValues {
-            print(forecast)
+            //print(forecast)
             
             let forecastJSON = JSON(forecast.1)
             let temp = forecastJSON["temp"].floatValue
             let condition = forecastJSON["conditions"].stringValue
-            let str = "temperature = \(temp)℉, \(condition)"
+            let str = "Temperature = \(temp)℉, \(condition)"
             self.temps.append(str)
         }
+        print(self.temps)
         self.tbView.reloadData()
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            temps.count
+            return temps.count
         }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
