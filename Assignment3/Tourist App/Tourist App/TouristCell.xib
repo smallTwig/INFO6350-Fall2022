@@ -44,7 +44,7 @@
                 <outlet property="imgView" destination="Nt3-y9-Nvc" id="ZVc-A4-ZpP"/>
                 <outlet property="labView" destination="a08-IF-cFD" id="Mgm-Ht-uwy"/>
             </connections>
-            <point key="canvasLocation" x="201.44927536231884" y="156.02678571428569"/>
+            <point key="canvasLocation" x="201.44927536231884" y="155.35714285714286"/>
         </tableViewCell>
     </objects>
 </document>
